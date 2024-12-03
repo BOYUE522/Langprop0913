@@ -1,4 +1,5 @@
 #!/bin/bash
+
 export ROOT="$(dirname "$(dirname "$(realpath -s "$BASH_SOURCE")")")"
 . ${ROOT}/set_path.sh
 

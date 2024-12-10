@@ -65,3 +65,5 @@ tar -xzf AdditionalMaps_0.9.13.tar.gz
 
 # git submodule update --init --recursive
 # git submodule update --recursive --remote
+
+export PYTHONPATH=./src/:${PYTHONPATH}

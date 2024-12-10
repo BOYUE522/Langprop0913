@@ -38,14 +38,25 @@ url={https://openreview.net/forum?id=JQJJ9PkdYC}
 }
 ```
 ## Setup
-1. Install anaconda or miniconda
+
+1. Install git
+
+2.Clone the repository
+
     ```bash
-    conda create -n langprop python=3.7
+    git clone --recursive https://github.com/BOYUE522/Langprop0913.git
+
+    cd Langprop0913
+    ```
+
+3. Install anaconda or miniconda
+
+    ```bash
+    conda create -n langprop python=3.7 --yes
     conda activate langprop
     pip install -r requirements.txt
     ```
-2. Install git
-3. Clone the repository
+
 4. Run the setup script
     ```
     bash setup.sh

@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
 . settings.sh
 
-# Download and install CARLA
-# mkdir -p $CARLA910_ROOT
-# cd $CARLA910_ROOT
+echo 'Download and install CARLA'
+mkdir -p $CARLA913a_ROOT
+cd $CARLA913a_ROOT
 
-# if [ ! -f "CARLA_0.9.10.1.tar.gz" ]; then
-#   axel -n 10 http://142.202.189.90/downloads9/CARLA_0.9.10.1.tar.gz
-#   tar -xf CARLA_0.9.10.1.tar.gz
-# fi
+wget -c https://tiny.carla.org/carla-0-9-13-linux -O CARLA_0.9.13.tar.gz
+if ! tar -tzf CARLA_0.9.13.tar.gz &>/dev/null; then
+    echo "CARLA_0.9.13.tar.gz is incomplete or corrupted. Please try downloading again."
+    exit 1
+fi
 
-# if [ ! -f "AdditionalMaps_0.9.10.1.tar.gz" ]; then
-#   axel -n 10 http://142.202.189.90/downloads9/AdditionalMaps_0.9.10.1.tar.gz
-#   tar -xf AdditionalMaps_0.9.10.1.tar.gz
-#   axel -n 10 http://142.202.189.90/downloads9/CARLA_0.9.10.1_RSS.tar.gz
-#   tar -xf CARLA_0.9.10.1_RSS.tar.gz
-# fi
+wget -c https://tiny.carla.org/carla-0-9-13-rss-linux -O CARLA_0.9.13_RSS.tar.gz
+if ! tar -tzf CARLA_0.9.13_RSS.tar.gz &>/dev/null; then
+    echo "CARLA_0.9.13_RSS.tar.gz is incomplete or corrupted. Please try downloading again."
+    exit 1
+fi
+
+wget -c https://tiny.carla.org/additional-maps-0-9-13-linux -O AdditionalMaps_0.9.13.tar.gz
+if ! tar -tzf AdditionalMaps_0.9.13.tar.gz &>/dev/null; then
+    echo "AdditionalMaps_0.9.13.tar.gz is incomplete or corrupted. Please try downloading again."
+    exit 1
+fi
+
+tar -xzf CARLA_0.9.13.tar.gz 
+tar -xzf CARLA_0.9.13_RSS.tar.gz
+tar -xzf AdditionalMaps_0.9.13.tar.gz
 
 # mkdir -p $CARLA911_ROOT
 # cd $CARLA911_ROOT
@@ -43,6 +53,7 @@
 #  tar -xf AdditionalMaps_0.9.12.tar.gz
 #fi
 #
+
 
 #mkdir -p $CARLA913a_ROOT
 #cd $CARLA913a_ROOT

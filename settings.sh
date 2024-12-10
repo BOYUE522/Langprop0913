@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-export ROOT=$(dirname "$(realpath -s "$BASH_SOURCE")")
+export ROOT=$(cd "$(dirname "$BASH_SOURCE")" && pwd)
+
 export SCENARIO_RUNNER_ROOT=${ROOT}/scenario_runner
 export LEADERBOARD_ROOT=${ROOT}/leaderboard
 
@@ -16,4 +17,13 @@ export CARLA913a_ROOT=${ROOT}/carla/913a
 export CARLA913a_EGG_PATH=${CARLA913a_ROOT}/PythonAPI/carla/dist/carla-0.9.13-py3.7-linux-x86_64.egg
 
 #export CARLA910_PYTHONPATH=${CARLA910_ROOT}/PythonAPI/carla/:${SCENARIO_RUNNER_ROOT}:${LEADERBOARD_ROOT}:${CARLA910_EGG_PATH}:${PYTHONPATH}
+
+# Check if the .env file exists
+
+if [ ! -f "$ROOT/.env" ]; then
+    echo "$ROOT/.env does not exist." 
+    echo "Please copy the file .env.example to .env and modify the contents YOUR_API_KEY "
+    exit 1 
+fi
+
 . ${ROOT}/.env
